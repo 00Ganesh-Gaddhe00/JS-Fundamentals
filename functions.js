@@ -63,10 +63,67 @@ function circumCal(r) {
     return 2 * 3.14 * r
 }
 
-console.log(circleCalculations(radius, areaCal))
-console.log(circleCalculations(radius, diaCal))
-console.log(circleCalculations(radius, circumCal))
+// console.log(circleCalculations(radius, areaCal))
+// console.log(circleCalculations(radius, diaCal))
+// console.log(circleCalculations(radius, circumCal))
 
+/////using Map method: prewitten function/////////////////////////////////////////////////////////////
+
+// console.log(radius.map(areaCal))
+// console.log(radius.map(diaCal))
+// console.log(radius.map(circumCal))
+
+//OR
+
+
+
+let ar = radius.map(function areaCal(r) {
+    return 3.14 * r * r
+}
+)
+
+// console.log(ar)
+
+
+//////////////// Filter Method //////////////////
+
+let numbers = [ 2, 3, 8, 9, 7, 4, 5, 1, 92];
+
+let even = numbers.filter(function(num){
+    return num%2==1
+})
+
+// console.log(even)
+
+/////////////////// Reduce Method /////////////
+
+let Numbers = [ 2, 2, 4, 2]
+
+function Calsum(arr){
+    let res = 0
+
+    for(let i=0; i<arr.length; i++){
+        res = res+arr[i]
+    }
+    return res
+}
+
+// let sum = Calsum(Numbers)
+// console.log(sum)
+function product(acc, num){
+    return acc*num
+}
+
+
+let sum = Numbers.reduce(function(acc,num){
+    return acc+num
+}, 0)
+
+console.log(sum)
+
+let mult = Numbers.reduce(product,1)
+
+console.log(mult)
 
 
 
