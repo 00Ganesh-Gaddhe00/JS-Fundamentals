@@ -3,12 +3,14 @@ let b = 20
 var c = 30
 
 function sum(){
-    console.log(a+b+c)
+    function a(){
+
+    }
+    a()
 }
 
 
-module.exports = sum 
-
+sum()
 console.log(module)
 
 
