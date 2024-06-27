@@ -52,4 +52,25 @@ person1.name = "Nit garath"
 // person1.walk()
 // person1.whatAge()
 // person.greetings()
-console.log(person1)
+// 
+
+///////inheretence//////
+
+class teacher extends person {
+
+    constructor(name, age, height, subject, grade){
+        super(name, age, height)
+        this.subject = subject
+        this.grade = grade
+    }
+
+    about(){
+        console.log(`my name is ${this.name}, i teach ${this.subject}`)
+    }
+}
+
+
+let teacher1 = new teacher("reshma", 30, 5.7, "science", "3rd grade" )
+console.log(teacher1)
+teacher1.walk()
+teacher1.about()
