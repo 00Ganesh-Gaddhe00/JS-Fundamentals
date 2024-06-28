@@ -69,8 +69,72 @@ class teacher extends person {
     }
 }
 
+class student extends person {
+    constructor(name, age, height, grade, section){
+        super(name, age, height)
+        this.grade = grade
+        this.section = section
+    }
 
-let teacher1 = new teacher("reshma", 30, 5.7, "science", "3rd grade" )
-console.log(teacher1)
-teacher1.walk()
-teacher1.about()
+    Intro(){
+        console.log(`My name is ${this.name} im form ${this.grade},${this.section}`)
+    }
+}
+
+
+// let teacher1 = new teacher("reshma", 30, 5.7, "science", "3rd grade" )
+// console.log(teacher1)
+// teacher1.walk()
+// teacher1.about()
+
+// let student1 = new student("ajay", 30, 5.10, "5th", "C")
+// console.log(student1)
+// student1.Intro()
+// student1.walk()
+
+let Obj4 = {
+    name : "name",
+    age:"age",
+    hsj:"kasj"
+}
+////prototype inheritence
+
+function car( carname, company, colour, BHP){
+        this.carname = carname
+        this.company = company
+        this.colour = colour
+        this.BHP = BHP
+        this.category = name==="Grand i10"? "hatchback": "SUV"
+        
+    
+    }
+    car.prototype.Carpower = function(){
+        console.log(`${this.name} has ${this.BHP}ps power`)
+    }
+
+    let car1 = new car("Grand i10", "Hyndai", "red", 80);
+    let car2 = new car("venue", "Hyndai", "red", 100);
+    car1.Carpower()
+    
+    console.log(car1)
+    console.log(car2)
+    
+    function owner(name, age){
+        this.ownerName = name
+        this.age = age
+    }
+
+    owner.prototype.Introduce = function(){
+        console.log(`${this.ownerName} has ${this.BHP}ps power`)
+    }
+
+    // owner.prototype.constru = car
+
+
+let owner1 = new owner("john", 30,)
+
+console.log(owner1)
+
+owner1.Introduce()
+// owner1.Carpower()
+    

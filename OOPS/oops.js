@@ -12,6 +12,12 @@ let obj = {
     }
 }
 
- obj.testfunction()
+//array is actually an object created from the array constructor function
+
+ console.log(obj["name"])
+
+ let arr = new Array("ka", "skd", "hd", "js")
+
+ console.log(arr)
 
 
