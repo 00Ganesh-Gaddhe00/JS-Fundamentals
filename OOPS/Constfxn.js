@@ -99,17 +99,16 @@ let Obj4 = {
 }
 ////prototype inheritence
 
-function car( carname, company, colour, BHP){
+function car( carname, company, BHP){
         this.carname = carname
         this.company = company
-        this.colour = colour
         this.BHP = BHP
         this.category = name==="Grand i10"? "hatchback": "SUV"
         
     
     }
     car.prototype.Carpower = function(){
-        console.log(`${this.name} has ${this.BHP}ps power`)
+        console.log(`${this.carname} has ${this.BHP}ps power`)
     }
 
     let car1 = new car("Grand i10", "Hyndai", "red", 80);
@@ -119,7 +118,8 @@ function car( carname, company, colour, BHP){
     console.log(car1)
     console.log(car2)
     
-    function owner(name, age){
+    function owner(carname, company, BHP, name, age){
+        car.call(carname, company, BHP, this)
         this.ownerName = name
         this.age = age
     }
@@ -128,7 +128,6 @@ function car( carname, company, colour, BHP){
         console.log(`${this.ownerName} has ${this.BHP}ps power`)
     }
 
-    // owner.prototype.constru = car
 
 
 let owner1 = new owner("john", 30,)
