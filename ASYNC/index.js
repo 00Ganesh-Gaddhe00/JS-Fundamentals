@@ -12,3 +12,5 @@ function timetakingtask(){
 )
 
 console.log('task2')
+
+
