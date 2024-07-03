@@ -1,6 +1,8 @@
 
 * Promises is a construction function for object where it require the resolve/reject condition and then attaches the resolve d
 
+
+
 * Promise is an object that represents the eventual completion or failure of Async operation and its resulting value
  - my defination, promise basically excepts an asyn operation and also excepts CB function in then()
 

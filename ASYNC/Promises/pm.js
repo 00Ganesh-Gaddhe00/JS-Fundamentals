@@ -87,13 +87,13 @@
 
 const cart = ["shirt", "pant", "shoe", "watch"]
 
-console.log("before")
+// console.log("before")
 function createOrder(cart){
     
    const pr = new Promise(function(resolve, reject){
        
       setTimeout(function(){
-         resolve({ order_id: 123, order_items:[...cart], total_price:cart.length*300})
+         resolve({ order_id: 123, order_items:cart, total_price:300})
          // reject('the items in the cart are unavailable')
    },1000)
    })
@@ -101,8 +101,8 @@ function createOrder(cart){
    return pr
 }
 
-console.log(createOrder(cart))
-console.log("after")
+// console.log(createOrder(cart))
+// console.log("after")
 
 
 function makepayment(total_amount){
@@ -123,17 +123,19 @@ function Ordermail(){
 })
 }
 
-createOrder(cart).then(
-function(data){
-   console.log(data)
-return makepayment(data.total_price)
-}
-).then(function(data){
-    console.log(data)
-   return Ordermail()
-}
-).then(function(data){
-console.log(data)
-}).catch(function(err){
-   console.error(err)
-})
+// createOrder(cart).then(
+// function(data){
+//    console.log(data)
+// return makepayment(data.total_price)
+// }
+// ).then(function(data){
+//     console.log(data)
+//    return Ordermail()
+// }
+// ).then(function(data){
+// console.log(data)
+// }).catch(function(err){
+//    console.error(err)
+// })
+
+Promise.all([createOrder(), makepayment(), Ordermail()]).then((data)=> console.log)
