@@ -3,7 +3,7 @@ let obj = {
     name:"garath",
     age:29,
     testfunction: function(){
-        function g(){
+       return function g(){
             console.log(this)
 
         }
@@ -12,12 +12,16 @@ let obj = {
     }
 }
 
+let fxn = obj.testfunction()
+
+console.log(fxn())
+
 //array is actually an object created from the array constructor function
 
- console.log(obj["name"])
+//  console.log(obj["name"])
 
- let arr = new Array("ka", "skd", "hd", "js")
+//  let arr = new Array("ka", "skd", "hd", "js")
 
- console.log(arr)
+//  console.log(arr)
 
 
