@@ -108,8 +108,8 @@ function createOrder(cart){
 function makepayment(total_amount){
        return new Promise(function(resolve, reject){
               setTimeout(function(){
-                  resolve('the payment of '+total_amount+' is successful')
-                  // reject ('the payment failed ')
+                  // resolve('the payment of '+total_amount+' is successful')
+                  reject ('the payment failed ')
               })
        },2000)
 }
@@ -138,4 +138,39 @@ function Ordermail(){
 //    console.error(err)
 // })
 
-Promise.all([createOrder(), makepayment(), Ordermail()]).then((data)=> console.log)
+// Promise.allPoll([createOrder(cart), makepayment(300), Ordermail()]).then((data)=> console.log(data))
+
+///// promise.all Pollyfill ///////////////////////////////////////////////////////
+
+
+Promise.allPoll = function(promises){
+    return new Promise((function(resolve, reject){
+       
+           if(!Array.isArray(promises)){
+            reject('not an array')
+           }
+
+           let res = []
+            let arrlength = promises.length
+
+           promises.forEach((promise, idx)=>{
+              Promise.resolve(promise).then((data)=>{
+                  res[idx]  = data
+                  arrlength--
+
+                  if(arrlength===0){
+                     resolve(res)
+                  }
+                 
+                     
+              }).catch((err)=>{
+               reject(err)
+              })
+
+           })
+
+    }))
+}
+
+
+Promise.allPoll([createOrder(cart), makepayment(30), Ordermail()]).then((data)=> console.log(data)).catch(err=>console.log(err))
