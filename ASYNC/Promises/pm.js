@@ -108,8 +108,8 @@ function createOrder(cart){
 function makepayment(total_amount){
        return new Promise(function(resolve, reject){
               setTimeout(function(){
-                  // resolve('the payment of '+total_amount+' is successful')
-                  reject ('the payment failed ')
+                  resolve('the payment of '+total_amount+' is successful')
+                  // reject ('the payment failed ')
               })
        },2000)
 }
@@ -143,34 +143,57 @@ function Ordermail(){
 ///// promise.all Pollyfill ///////////////////////////////////////////////////////
 
 
-Promise.allPoll = function(promises){
-    return new Promise((function(resolve, reject){
+// Promise.allPoll = function(promises){
+//     return new Promise((function(resolve, reject){
        
-           if(!Array.isArray(promises)){
-            reject('not an array')
-           }
+//            if(!Array.isArray(promises)){
+//             reject('not an array')
+//            }
 
-           let res = []
-            let arrlength = promises.length
+//            let res = []
+//             let arrlength = promises.length
 
-           promises.forEach((promise, idx)=>{
-              Promise.resolve(promise).then((data)=>{
-                  res[idx]  = data
-                  arrlength--
+//            promises.forEach((promise, idx)=>{
+//               Promise.resolve(promise).then((data)=>{
+//                   res[idx]  = data
+//                   arrlength--
 
-                  if(arrlength===0){
-                     resolve(res)
-                  }
+//                   if(arrlength===0){
+//                      resolve(res)
+//                   }
                  
                      
-              }).catch((err)=>{
-               reject(err)
-              })
+//               }).catch((err)=>{
+//                reject(err)
+//               })
 
-           })
+//            })
 
-    }))
-}
+//     }))
+// }
 
+Promise.allPoll = function(promises){
+   return new Promise((function(resolve, reject){
+
+      if(!Array.isArray(promises)){
+                     reject('not an array')
+                    }
+         
+       const res = []
+       let arrayLength = promises.length
+       promises.forEach((promise, idx)=>{
+           Promise.resolve(promise).then((data)=>{
+               res[idx] = data
+               arrayLength--;
+
+               if(arrayLength===0){
+                   resolve(res)
+               }
+
+
+           }).catch((err)=>reject(err))
+       })
+   }))
+}      
 
 Promise.allPoll([createOrder(cart), makepayment(30), Ordermail()]).then((data)=> console.log(data)).catch(err=>console.log(err))

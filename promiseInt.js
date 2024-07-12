@@ -81,4 +81,24 @@
 //     }
 
 
-        
+Promise.allpolly = function(promises){
+    return new Promise(function(resolve, reject){
+        const res = []
+        let arrayLength = promises.length
+        promises.forEach((promise, idx)=>{
+            Promise.resolve(promise).then((res)=>{
+                res[idx] = res
+                arrayLength--;
+
+                if(arrayLength===0){
+                    resolve(res)
+                }
+
+
+            }).catch((err)=>reject('err'))
+        })
+    })
+}        
+
+
+

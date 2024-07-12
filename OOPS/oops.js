@@ -14,7 +14,7 @@ let obj = {
 
 let fxn = obj.testfunction()
 
-console.log(fxn())
+// console.log(fxn())
 
 //array is actually an object created from the array constructor function
 
@@ -24,4 +24,34 @@ console.log(fxn())
 
 //  console.log(arr)
 
+function solution(obj, Propprefix ){
+    let output = {}
 
+    for(let key in obj){
+        let val = obj[key];
+        let newkey = Propprefix===undefined? key: Propprefix+'.'+key;
+        if(val!==null && typeof val === 'object'){
+            let recursiveoutput = solution(val, newkey);
+            output={...output, ...recursiveoutput}
+        }
+        else output[newkey] = val;
+    }
+
+    return output
+
+}
+
+
+nestedObject = {
+    a: 1,
+    b: {
+        c: 2,
+        d: {
+            e: 3,
+            f: 4
+        }
+    },
+    g: 5
+};
+
+console.log(solution(nestedObject))
