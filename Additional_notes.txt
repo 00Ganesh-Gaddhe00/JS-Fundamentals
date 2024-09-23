@@ -1,0 +1,71 @@
+https:Execution context - //www.youtube.com/watch?v=iLWTnMzWtj4&list=PLxnjbfm5MCHFbRlyVCAqpJFdIzPN_IPID&index=3
+
+
+* The Temporal Dead Zone (TDZ) in JavaScript refers to the period between the time a variable is scoped (created in memory) and the time it is initialized (assigned a value). During this period, the variable cannot be accessed, and attempting to do so will result in a ReferenceError.
+
+This concept primarily applies to variables declared with the let and const keywords, as they have block-level scoping and are not hoisted in the same way as var.
+
+
+-where we run the JavaScript code a global Execution context is created, 
+-which 2 phase called memory phase and execution phase, 
+-during memory phase a memory or space for declared variables and functions is created, a global object which consist of javascript properties and API gets attached 
+and during exection phase the code will be Executed 
+- when we invoke a function another functional execution context is created which works similar 
+
+* hoisting : the behaviour of variables and functions that can be accessed before declaring then in the form of hoisting,
+              because the memory is already allocated in the memoryphase before code execution in executing phase due to which the varaibale and functions are hoisted
+
+             - Function declarations are fully hoisted, meaning both the function name and its definition are moved to the top of the scope.
+             - Variables declared with var are hoisted, but they are initialized to undefined until the line of code where the initialization occurs.
+             - Variables declared with let and const are hoisted but remain in the Temporal Dead Zone (TDZ) and cannot be accessed until the execution reaches their declaration.
+
+* lexical scope : Lexical Environment
+The lexical environment is the structure that JavaScript internally creates to track variables within a scope. Every time a function is executed, a new lexical environment is created.
+
+Each lexical environment has two components:
+- Environment Record: This is where variable and function declarations are stored.
+- Outer Lexical Environment: This refers to the lexical environment of the outer function (or global scope) where the function is defined.
+
+
+* closures : In JavaScript, a closure is a function that has access to the variables and parameters of its outer function, even after the outer function has finished executing. This is because a closure is created when a function is defined within another function, and the inner function maintains a reference to the lexical environment of the outer function.
+        
+        1. Data Encapsulation / Private Variables
+        Closures allow you to create "private" variables that can't be accessed directly from outside the function but can be modified through the inner function. This helps in creating more secure and encapsulated code.
+
+        Example:    function createCounter() {
+                      let count = 0;  // Private variable
+
+                        return function() {
+                      count++;  // Modify private variable
+                        return count;
+                           };
+                      }
+
+                   const counter = createCounter();
+
+                    console.log(counter());  // Output: 1
+                    console.log(counter());  // Output: 2
+                     console.log(counter());  // Output: 3
+
+      3. Event Handlers and Callbacks
+         In asynchronous programming (e.g., event handlers or callbacks), closures allow the function to retain access to variables in the surrounding scope even after the asynchronous operation has completed.
+
+      4. Currying
+        Closures are essential in currying, a functional programming technique where a function with multiple arguments is broken down into a series of functions, each taking one argument at a time. Currying enables more flexible and reusable function calls.
+
+       * Summary of Applications of closures:
+           - Data encapsulation (creating private variables).
+            - Function factories (creating customized functions).
+           - Event handlers and asynchronous callbacks (preserving access to variables in delayed actions).
+          - Currying (partial application of functions).
+          - Memoization (performance optimization via caching).
+          - Module pattern (creating public APIs with private data).
+          - Stateful functions (preserving state across function calls).
+
+
+* currying : Currying is a technique in functional programming that transforms a function with multiple arguments into a sequence of functions, each taking a single argument.
+             Instead of taking all arguments at once, a curried function takes the first argument and returns a new function that takes the next argument, and so on, until all arguments have been provided.
+
+
+
+

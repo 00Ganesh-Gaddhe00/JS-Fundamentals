@@ -82,6 +82,7 @@ class student extends person {
 }
 
 
+
 // let teacher1 = new teacher("reshma", 30, 5.7, "science", "3rd grade" )
 // console.log(teacher1)
 // teacher1.walk()
@@ -92,18 +93,21 @@ class student extends person {
 // student1.Intro()
 // student1.walk()
 
-let Obj4 = {
-    name : "name",
-    age:"age",
-    hsj:"kasj"
-}
+// let Obj4 = {
+//     name : "name",
+//     age:"age",
+//     hsj:"kasj"
+// }
 ////prototype inheritence
 
 function car( carname, company, BHP){
         this.carname = carname
         this.company = company
         this.BHP = BHP
-        this.category = name==="Grand i10"? "hatchback": "SUV"
+        this.category = carname==="Grand i10"? "hatchback": "SUV"
+        this.describe = function(){
+               console.log(`the car name${this.carname} is ${this.company}`)
+        }
         
     
     }
@@ -113,13 +117,13 @@ function car( carname, company, BHP){
 
     let car1 = new car("Grand i10", "Hyndai", "red", 80);
     let car2 = new car("venue", "Hyndai", "red", 100);
-    car1.Carpower()
+    car1.describe()
     
-    console.log(car1)
-    console.log(car2)
+    // console.log(car1)
+    // console.log(car2)
     
     function owner(carname, company, BHP, name, age){
-        car.call(carname, company, BHP, this)
+        car.call(this, carname, company, BHP)
         this.ownerName = name
         this.age = age
     }
@@ -131,9 +135,11 @@ function car( carname, company, BHP){
 
 
 let owner1 = new owner("john", 30,)
+let owner2 = new owner("roxx", "mahindra", 110, "ganesh", 25 )
+// console.log(owner2)
 
-console.log(owner1)
+// console.log(owner1)
 
-owner1.Introduce()
+// owner2.Introduce()
 // owner1.Carpower()
     

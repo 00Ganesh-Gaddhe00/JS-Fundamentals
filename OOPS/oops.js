@@ -1,20 +1,24 @@
 
-let obj = {
-    name:"garath",
-    age:29,
-    testfunction: function(){
-       return function g(){
-            console.log(this)
+// let obj = {
+//     name:"garath",
+//     age:29,
+//     testfunction: function(){
+//               function g(){
+//             console.log(this)
 
-        }
-        g()
+//         }
+//         g()
 
-    }
-}
+//     }
+// }
 
-let fxn = obj.testfunction()
+// const fxn =  obj.testfunction()
+// obj.testfunction()
+
 
 // console.log(fxn())
+
+
 
 //array is actually an object created from the array constructor function
 
@@ -24,22 +28,22 @@ let fxn = obj.testfunction()
 
 //  console.log(arr)
 
-function solution(obj, Propprefix ){
-    let output = {}
+// function solution(obj, Propprefix ){
+//     let output = {}
 
-    for(let key in obj){
-        let val = obj[key];
-        let newkey = Propprefix===undefined? key: Propprefix+'.'+key;
-        if(val!==null && typeof val === 'object'){
-            let recursiveoutput = solution(val, newkey);
-            output={...output, ...recursiveoutput}
-        }
-        else output[newkey] = val;
-    }
+//     for(let key in obj){
+//         let val = obj[key];
+//         let newkey = Propprefix===undefined? key: Propprefix+'.'+key;
+//         if(val!==null && typeof val === 'object'){
+//             let recursiveoutput = solution(val, newkey);
+//             output={...output, ...recursiveoutput}
+//         }
+//         else output[newkey] = val;
+//     }
 
-    return output
+//     return output
 
-}
+// }
 
 
 nestedObject = {
@@ -53,5 +57,21 @@ nestedObject = {
     },
     g: 5
 };
+
+function solution (obj, prev_key){
+   let output = {}
+   for(let key in obj){
+    let val = obj[key]
+     let newKey = prev_key === undefined?key: prev_key+'.'+key
+     if(val!=null && typeof val === 'object'){
+        let recursive = solution(val, newKey )
+        output = {...output, ...recursive}
+     }
+      else output[newKey] = val
+    }
+
+    return output
+
+}
 
 console.log(solution(nestedObject))

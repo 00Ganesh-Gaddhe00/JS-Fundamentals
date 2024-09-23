@@ -6,7 +6,7 @@
 // function sum(){
 //     var val = 99
 //     function ine(){
-//       console.log(c)
+//       console.log(val)
 //     } 
 //     ine()
 // }
@@ -33,14 +33,38 @@
 // var x; // Declare x
 //-----------------------------------------------------------
 
-sum()
+// sum()
 
-let a = 10       
-const b = 20
-var c = 30
+// let a = 10       
+// const b = 20
+// var c = 30
 
-function sum(){
-    console.log()
+// function sum(){
+//     console.log()
+// }
+
+
+// -----------------------------------------------------------
+// looking at lexical environment
+
+var a = 10
+let b = 20
+
+function A1(){
+    let val1 = 20
+    console.log(b)
+    console.log(a)
+    A2()
+    function A2(){
+        
+        console.log(val1)
+        let val2 = 30
+        A3();
+        function A3(){
+            let val3=90
+        console.log(val2)
+        }
+    }
 }
 
-
+A1()

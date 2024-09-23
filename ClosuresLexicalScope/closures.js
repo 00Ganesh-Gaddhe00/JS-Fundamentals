@@ -34,22 +34,35 @@
 ////////////////// closures /////////////////////////////////
 
 
-function parent(){
-    let val = 10;
-    function child(){
-        let val2 = 11
-        function garndchild(){
-            console.log(val+val2)
-        }
-        return garndchild
-    }
-    return child
-}
+// function parent(){
+//     let val = 10;
+//     function child(){
+//         let val2 = 11
+//         function garndchild(){
+//             console.log(val+val2)
+//         }
+//         return garndchild
+//     }
+//     return child
+// }
 
-let parentFxn = parent()
-let childfxn = parentFxn()
-let grandchildfxn = childfxn()
-let fxn = parent()()()
+// let parentFxn = parent()
+// let childfxn = parentFxn()
+// let grandchildfxn = childfxn()
+// let fxn = parent()()
 
-console.log(grandchildfxn)
-
+// 
+function createCounter() {
+    let count = 0;  // Private variable
+  
+    return function() {
+      count++;  // Modify private variable
+      return count;
+    };
+  }
+  
+  const counter = createCounter();
+  
+  console.log(counter());  // Output: 1
+  console.log(counter());  // Output: 2
+  console.log(counter());  // Output: 3

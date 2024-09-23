@@ -20,7 +20,3 @@ const obj = {
 
 
 // console.log(typeof null)
-console.log(val3)
-let val1 = 9
-const val2 = 10
-var val3 = 11
