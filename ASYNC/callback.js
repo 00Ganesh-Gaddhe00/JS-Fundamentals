@@ -41,52 +41,52 @@ console.log("before")
 
 //////////////////////////////
 
-// function cb (err, data){
-//     if(err){
-//         console.log(err)
-//     }
-//     else console.log("file data => "+data)
+function cb (err, data){
+    if(err){
+        console.log(err)
+    }
+    else console.log("file data => "+data)
 
-// }
+}
 
-// fs.readFile("file1.txt", cb)
-// fs.readFile("file2.txt", cb)
-// fs.readFile("file3.txt", cb)
+fs.readFile("file1.txt", cb)
+fs.readFile("file2.txt", cb)
+fs.readFile("file3.txt", cb)
 // fs.readFile("file4.txt", cb)
 
 
 
 
-// console.log("after")
+console.log("after")
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function cb1 (err, data){
-        if(err){
-            console.log(err)
-        }
-        else console.log("file1 data => "+data)
-     fs.readFile("file2.txt", cb2)
+// function cb1 (err, data){
+//         if(err){
+//             console.log(err)
+//         }
+//         else console.log("file1 data => "+data)
+//      fs.readFile("file2.txt", cb2)
     
-    }
+//     }
 
-    function cb2 (err, data){
-        if(err){
-            console.log(err)
-        }
-        else console.log("file2 data => "+data)
-        fs.readFile("file3.txt", cb3)
-    }
+//     function cb2 (err, data){
+//         if(err){
+//             console.log(err)
+//         }
+//         else console.log("file2 data => "+data)
+//         fs.readFile("file3.txt", cb3)
+//     }
 
-    function cb3 (err, data){
-        if(err){
-            console.log(err)
-        }
-        else console.log("file3 data => "+data)
+//     function cb3 (err, data){
+//         if(err){
+//             console.log(err)
+//         }
+//         else console.log("file3 data => "+data)
     
-    }
+//     }
 
-fs.readFile("file1.txt", cb1)
+// fs.readFile("file1.txt", cb1)
 
 
 

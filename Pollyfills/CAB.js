@@ -43,23 +43,24 @@
 
 //Q2
 //output -> #1 Lion:King
-  ///       #2 Tiger:queen
+  //       #2 Tiger:queen
 
-// const animals = [
-//     {species:'Lion', name:'king'},
-//     {species:'Tiger', name:'Queen'}
-// ]
+const animals = [
+    {species:'Lion', name:'king'},
+    {species:'Tiger', name:'Queen'}
+]
 
-// function printAnimals(i){
-//     this.print = function(){
-//         console.log('#'+i+' '+this.species+': '+this.name);
-//     }
-//     this.print()
-// }
+function printAnimals(i){
+    this.print = function(){
+        console.log('#'+i+' '+this.species+': '+this.name);
+    }
+    this.print()
+}
 
-// for(let i=0; i<animals.length; i++){
-//      printAnimals.call(animals[i],i)
-// }
+for(let i=0; i<animals.length; i++){
+     printAnimals.call(animals[i],i)
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////
 //  Q3
@@ -161,15 +162,15 @@
 
 ///////////////////////////////////////////////   Pollyfills       //////////////////////////////////////////////////
 
-const teacher = {
-    name: "garath",
-    subject:"science"
-}
+// const teacher = {
+//     name: "garath",
+//     subject:"science"
+// }
 
-function teacherintro(age, experince){
+// function teacherintro(age, experince){
 
-   console.log(`Hello! My name is ${this.name}, i teach ${this.subject}, im ${age}yrs old, i have ${experince}years of experience`)
-}
+//    console.log(`Hello! My name is ${this.name}, i teach ${this.subject}, im ${age}yrs old, i have ${experince}years of experience`)
+// }
 
 // Function.prototype.Mycall = function(obj, ...args){
 
@@ -178,6 +179,7 @@ function teacherintro(age, experince){
 //     obj.fxn(...args)
 
 // }
+// teacherintro.Mycall(teacher, 30, 4)
 
 
 // Function.prototype.MyApply = function(obj, paramarray){
@@ -200,18 +202,18 @@ function teacherintro(age, experince){
 
 // fxn(30,4)
 
-Function.prototype.Mycall = function(obj, ...args){
+// Function.prototype.Mycall = function(obj, ...args){
 
     // if(typeof this !== 'function'){
     //     throw new TypeError(this +'IS NOT FUNCTION')
     // }
           
-        obj.fxn = this
+    //     obj.fxn = this
         
-        obj.fxn(...args)
+    //     obj.fxn(...args)
 
     
-    }
+    // }
 
 
 

@@ -65,6 +65,59 @@ Each lexical environment has two components:
 
 * currying : Currying is a technique in functional programming that transforms a function with multiple arguments into a sequence of functions, each taking a single argument.
              Instead of taking all arguments at once, a curried function takes the first argument and returns a new function that takes the next argument, and so on, until all arguments have been provided.
+const name = ganesh = name is inheriting from string, string is inheriting from object
+       
+* Prototype ; is basically an object made out of construction fxn or inbuilt that defines the characters of an instance using its properties and functions. the javascript like arrays, fxns attached a fxn prototype along with the object 
+ if obj2.__proto__ = gives the prototype of it which = object.prototype
+
+ function Parent() {
+    this.name = "Parent";
+}
+
+Parent.prototype.greet = function() {
+    console.log(`Hello, I am ${this.name}`);
+};
+
+function Child() {
+    Parent.call(this);  // Inherit properties from Parent
+    this.name = "Child";
+}
+
+Child.prototype = Object.create(Parent.prototype);  // Inherit methods from Parent
+Child.prototype.constructor = Child;
+
+let childInstance = new Child();
+childInstance.greet();  // Output: "Hello, I am Child"
+
+
+ prototype inheritence = obj2.__proto__ = obj1 = not advisible(immaturly update) = cause performance issues go through all unwanted obj1 props/inherents all peroperties even unwanted one/ can modify each others props
+ instead use construnctor fxns and methods so that js do it properly
+
+
+example when we creat an array, array properties and fxns of that to which array prototype to which object prototypes, everything in javascript is nothing but an object
+__proto_ is property of any variable that is pointing towards the parent that its inheriting from
+
+* Protype inheritence : inheriting properties and fxn from one constructor object to another or adding properties and fxn to the constructor object
+
+* protype chaining : when we inherit 
+
+Prototypal inheritence concept is defferent from class inheritence
+
+1. Prototype
+Definition: In JavaScript, a prototype is an object that is associated with every function and object by default. It serves as a template from which other objects can inherit properties and methods. 
+Each JavaScript object has an internal property called [[Prototype]], which is a reference to another object (its prototype). This prototype can itself have a prototype, creating a chain of prototypes.
+
+2. Prototype Inheritance
+Definition: Prototype inheritance is a mechanism in JavaScript that allows an object to inherit properties and methods from another object via the prototype chain. 
+This means that if an object does not have a property or method, JavaScript will look for it in the object's prototype.
+
+3. Prototype Chaining
+Definition: Prototype chaining is the mechanism by which JavaScript looks up properties and methods in the prototype chain. When an object is created, it has a link to its prototype, and if a property or method is not found on the object itself, 
+JavaScript will look in its prototype. If it is not found there, it will continue to look up the prototype chain until it reaches Object.prototype, which is at the top of the chain.
+
+Method shadowing in JavaScript refers to the phenomenon where a derived or child object has a method that has the same name as a method in its prototype or parent object. When this happens, 
+the child object's method "shadows" or overrides the method in the parent object, making the parent method inaccessible from the child instance.
+
 
 
 

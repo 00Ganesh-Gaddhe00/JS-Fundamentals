@@ -142,4 +142,40 @@ let owner2 = new owner("roxx", "mahindra", 110, "ganesh", 25 )
 
 // owner2.Introduce()
 // owner1.Carpower()
+
+//------------------------- inerting the entire object from ---------------
+
+function Parent() {
+    this.name = "Parent";
+}
+
+Parent.prototype.greet = function() {
+    console.log(`Hello, I am ${this.name}`);
+};
+
+function Child() {
+    Parent.call(this);  // Inherit properties from Parent
+    this.name = "Child";
+}
+
+Child.prototype = Object.create(Parent.prototype);  // Inherit methods from Parent
+Child.prototype.constructor = Child;
+
+let childInstance = new Child();
+childInstance.greet();  // Output: "Hello, I am Child"
+
+
+// Summary of Inheritance Lines
+// Parent.call(this);
+
+// Purpose: This line is used within the Child constructor to call the Parent constructor function.
+// Effect: It initializes properties directly on the instance of Child. This means that any properties defined in Parent will be available on the Child instance itself.
+// Attachment: The properties are not attached to Child.prototype; they are part of the individual instance of Child. Each instance of Child will have its own copy of these properties.
+
+// Child.prototype = Object.create(Parent.prototype);
+
+// Purpose: This line is used to set up the prototype chain for inheritance.
+// Effect: It allows all instances of Child to inherit methods and properties defined on Parent.prototype. This means that Child instances can access methods from Parent via the prototype chain.
+// Attachment: This establishes a link between Child.prototype and Parent.prototype, so any methods added to Parent.prototype will be available to all instances of Child.
+
     
