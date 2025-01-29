@@ -1,5 +1,5 @@
 
-/// constructions functions
+// / constructions functions
 // function car( name, company, colour, BHP){
 //     this.name = name
 //     this.company = company
@@ -12,49 +12,102 @@
 
 // }
 
+// let a=10;
+
+// let obj4 = {
+//     dhj:"kjahs",
+//     jdas:"djkj"
+// }
+
 // let car1 = new car("Grand i10", "Hyndai", "red", 80);
 // let car2 = new car("venue", "Hyndai", "red", 100);
 
 // console.log(car1)
 // console.log(car2)
 
+// console.log(car1);
+// console.dir(car1, { showHidden: true, depth: null });
+
 
 //////Class
 
-class person {
-     constructor(name, age, height){
-        //properties or instance variables
-        this.name = name
-        this.age = age
-        this.height = height
-     }
+// class person {
+//      constructor(name, age, height){
+//         //properties or instance variables
+//         this.name = name
+//         this.age = age
+//         this.height = height
+//      }
 
-     //methods or instance methods
-     walk(){
-        console.log(`${this.name} is walking`)
-     }
+//      //methods or instance methods
+//      walk(){
+//         console.log(`${this.name} is walking`)
+//      }
 
-     whatAge(){
-        console.log(`My age is ${this.age}`)
-     }
+//      whatAge(){
+//         console.log(`My age is ${this.age}`)
+//      }
      
-     //static method
-     static greetings(){
-        console.log("Greetings from the function static")
-     }
+//      //static method
+//      static greetings(){
+//         console.log("Greetings from the function static")
+//      }
 
-}
+// }
 
-let person1 = new person("garath", 20, 5.10)
+// let person1 = new person("garath", 20, 5.10)
 
-person1.age = 30
-person1.name = "Nit garath"
+// person1.age = 30
+// person1.name = "Nit garath"
 // person1.walk()
 // person1.whatAge()
 // person.greetings()
+// person.whatAge()
 // 
 
 ///////inheretence//////
+
+//--------------------------------------------------------------------------------------
+// Parent object
+// const Animal = {
+//     species: 'Unknown',
+//     speak() {
+//         console.log(`${this.species} makes a sound.`);
+//     }
+// };
+
+// // Creating a new object (child) that inherits from Animal
+// const dog = Object.create(Animal);
+// dog.species = 'Dog';
+// dog.speak(); // Output: Dog makes a sound.
+
+//--------------------------------------------------------------------------------------
+// Parent constructor function (Animal)
+// function Animal(name) {
+//     this.name = name;
+// }
+
+// Animal.prototype.speak = function() {
+//     console.log(`${this.name} makes a sound.`);
+// };
+
+// // Child constructor function (Dog)
+// function Dog(name, breed) {
+//     Animal.call(this, name);  // Call the parent constructor function
+//     this.breed = breed;
+// }
+
+// // Inherit the properties and methods from Animal
+// Dog.prototype = Object.create(Animal.prototype);
+
+// // Set the constructor back to Dog (this is important)
+// Dog.prototype.constructor = Dog;
+
+// const dog1 = new Dog('Buddy', 'Golden Retriever');
+// // dog1.speak(); // Output: Buddy makes a sound.
+// console.log(dog1.breed); // Output: Golden Retriever
+
+//--------------------------------------------------------------------------------------
 
 class teacher extends person {
 
@@ -83,59 +136,59 @@ class student extends person {
 
 
 
-// let teacher1 = new teacher("reshma", 30, 5.7, "science", "3rd grade" )
-// console.log(teacher1)
-// teacher1.walk()
-// teacher1.about()
+let teacher1 = new teacher("reshma", 30, 5.7, "science", "3rd grade" )
+console.log(teacher1)
+teacher1.walk()
+teacher1.about()
 
-// let student1 = new student("ajay", 30, 5.10, "5th", "C")
-// console.log(student1)
-// student1.Intro()
-// student1.walk()
+let student1 = new student("ajay", 30, 5.10, "5th", "C")
+console.log(student1)
+student1.Intro()
+student1.walk()
 
-// let Obj4 = {
-//     name : "name",
-//     age:"age",
-//     hsj:"kasj"
-// }
+let Obj4 = {
+    name : "name",
+    age:"age",
+    hsj:"kasj"
+}
 ////prototype inheritence
 
-function car( carname, company, BHP){
-        this.carname = carname
-        this.company = company
-        this.BHP = BHP
-        this.category = carname==="Grand i10"? "hatchback": "SUV"
-        this.describe = function(){
-               console.log(`the car name${this.carname} is ${this.company}`)
-        }
+// function car( carname, company, BHP){
+//         this.carname = carname
+//         this.company = company
+//         this.BHP = BHP
+//         this.category = carname==="Grand i10"? "hatchback": "SUV"
+//         this.describe = function(){
+//                console.log(`the car name${this.carname} is ${this.company}`)
+//         }
         
     
-    }
-    car.prototype.Carpower = function(){
-        console.log(`${this.carname} has ${this.BHP}ps power`)
-    }
+//     }
+//     car.prototype.Carpower = function(){
+//         console.log(`${this.carname} has ${this.BHP}ps power`)
+//     }
 
-    let car1 = new car("Grand i10", "Hyndai", "red", 80);
-    let car2 = new car("venue", "Hyndai", "red", 100);
-    car1.describe()
+//     let car1 = new car("Grand i10", "Hyndai", "red", 80);
+//     let car2 = new car("venue", "Hyndai", "red", 100);
+//     car1.describe()
     
     // console.log(car1)
     // console.log(car2)
     
-    function owner(carname, company, BHP, name, age){
-        car.call(this, carname, company, BHP)
-        this.ownerName = name
-        this.age = age
-    }
+    // function owner(carname, company, BHP, name, age){
+    //     car.call(this, carname, company, BHP)
+    //     this.ownerName = name
+    //     this.age = age
+    // }
 
-    owner.prototype.Introduce = function(){
-        console.log(`${this.ownerName} has ${this.BHP}ps power`)
-    }
+    // owner.prototype.Introduce = function(){
+    //     console.log(`${this.ownerName} has ${this.BHP}ps power`)
+    // }
 
 
 
-let owner1 = new owner("john", 30,)
-let owner2 = new owner("roxx", "mahindra", 110, "ganesh", 25 )
+// let owner1 = new owner("john", 30,)
+// let owner2 = new owner("roxx", "mahindra", 110, "ganesh", 25 )
 // console.log(owner2)
 
 // console.log(owner1)
@@ -143,26 +196,26 @@ let owner2 = new owner("roxx", "mahindra", 110, "ganesh", 25 )
 // owner2.Introduce()
 // owner1.Carpower()
 
-//------------------------- inerting the entire object from ---------------
+//------------------------- inhereting the entire object from ---------------
 
-function Parent() {
-    this.name = "Parent";
-}
+// function Parent() {
+//     this.name = "Parent";
+// }
 
-Parent.prototype.greet = function() {
-    console.log(`Hello, I am ${this.name}`);
-};
+// Parent.prototype.greet = function() {
+//     console.log(`Hello, I am ${this.name}`);
+// };
 
-function Child() {
-    Parent.call(this);  // Inherit properties from Parent
-    this.name = "Child";
-}
+// function Child() {
+//     Parent.call(this);  // Inherit properties from Parent
+//     this.name = "Child";
+// }
 
-Child.prototype = Object.create(Parent.prototype);  // Inherit methods from Parent
-Child.prototype.constructor = Child;
+// Child.prototype = Object.create(Parent.prototype);  // Inherit methods from Parent
+// Child.prototype.constructor = Child;
 
-let childInstance = new Child();
-childInstance.greet();  // Output: "Hello, I am Child"
+// let childInstance = new Child();
+// childInstance.greet();  // Output: "Hello, I am Child"
 
 
 // Summary of Inheritance Lines

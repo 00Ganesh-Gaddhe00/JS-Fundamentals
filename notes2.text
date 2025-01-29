@@ -1,0 +1,175 @@
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+JavaScript- Execution Context - also refer binding notes
+
+whenever we load a script or invoke a function a new execution context is pushed onto the call stack which is actually an execution context stack.
+
+-execution context is an environment in which our code is actually executed
+
+- execution context consist - realm / lexical environment / varaiable environment
+
+
+- realm consist of intrinsics/Global object/Global environment records
+
+- Global object contains - spec properties/host proeperties/ explixitly added like var/function(automatically added)
+                                                           implicitly added like winows.myvar=20().
+
+- global environment records - consist of reference to global object - declaritive record(all identifier bindings expect var and function ) - this- global object - outer Env=null(Global Object)
+
+this - global environment record-
+     -  incase of function context or global context this reference to Global object because the outer conext is based out of window or module or an empty file in nodejs
+        expect in cases like the function is executed in an declared/created object because the funtion is based out of that and object is the defined/entity
+        just the defined window(purposed to  build wep pages) and in node file (purpose to serve a codesheet for outerspace work regardless of environment)
+        basically window server browser "this" makes dynamic functions works for the browser and while in node "this" points to empty object because they are just indidual files the outer funtions are standalone doest have to be dynamic
+     
+why global object is aviable across or save added properties is because its the mother/actually script waiting for all other functions little 
+excution context to get over and store their results and go the actual job or main work enclosing little works
+
+scope is just a what ever thing that are made available for the execution context
+
+to put i simply - when script javascript loads An Global execution context is created in the call
+                - consist of two phases - memory/creation phase and Execution phase
+                - During memory phases a vaiable environment consist of javascript properties, browser properties, declared code varaiable and function initialized accordingly
+                - then the code is executed line by inaccordance with the code constructs using the memory environment.
+                - when the function is invoked function execution is created in a LIFO callstack similerly consist of two phases.
+                - when the execution is done the context is removed from the call stack.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------Hoisting----------------------------------------------------------------------------------------------
+ 
+var - can redeclare/ reassign / can access before declaring - unpredicted redeclaration(cant dectect using same varaible names) - unpredicted reassign(values can be changes)
+let - cannot redeclare / can reassign / cannot access before declaring- cannot redeclare - can change the values
+const - cannot redeclare / cannot reassign / cannot access before declaring - cannot redeclare - cannot change the values.
+
+-the Temporial dead zone is created specifically for the let and const inorder restrict to be available because they are hoisted.
+
+Temporial dead zone : The temporal dead zone (TDZ) is a period in JavaScript where a variable is declared but not yet initialized, and therefore cannot be accessed.
+
+Hoisting : During Code execution varaible are available or accessible above the Single treaded execution because execution contexts two phases 
+
+Hoisting: Hoisting is a JavaScript feature that moves variable and function declarations to the top of their scope before the code is executed.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Primitive Data Type - the data that is directly stored or assigned to the Varaiable itself
+                    - usually stored in the stack memory itself
+                    - simple or straight Data
+
+Non-Primitive Data Type - the data that is not directly stored or assigned to the Varaiable itself but the reference of it 
+                        - usually stored in heap memory
+                        - Large and complex Data or (combination of multiple data structured into Large common Data structures)
+
+undefined and Null ;
+                   - Both undefined and null represent No value preventing error or breaking the code
+
+undefined represent the value that is yet to assigned or empty
+null represent the value that should not be assigned or wont apply
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------lexical environment----------------------------------------------------------------------------------
+
+lexical environment - it is component of execution context
+                    - refer to environment where varaiables and functions are defined in relation to their execution scope, structured accordingly during creation phase
+                    - it consist of two primary components:
+                      1. Environment Record: This is where variable and function declarations from the current execution scope
+                      2. Reference to the Outer Lexical Environment: Each lexical environment keeps a reference to its outer (parent) lexical environment, forming a "scope chain."
+
+scope chaining -  lexical environment consist of a reference to the outer or parent execution scope until the global scope creating a scope chain
+
+Scope chaining in JavaScript refers to the way in which the scope of variables is determined through a chain of lexical environments, starting from the current scope and moving outward through its parent scopes, until it reaches the global scope.
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------- Closures -------------------------------------------------------------------------------------
+
+what actually is :
+Closure refers to the function where the lexical environments still have the reference to outer Lexical environment even after the outer function is executed and removed from the stack
+
+
+simple defined ; 
+Closures refers to the function that has access to its parent function even after the parent function has finished executing
+
+Applications of Closures:
+1. Data Privacy and Encapsulation: Encapsulating the data(making Method users not access or modified data) and giving only methods
+2. Function Factories/Dynamic functions by making the user of the function passing arg that needs to work with encapsulated data
+3. Event Handlers and Callbacks: setting up the event handlers 
+4. Maintaining State Between Calls: example how many times the method is used by increamenting count.
+5. important-  Partial Application:
+6.Curring:
+7.Asyncronous programming.
+--------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------Curring--------------------------------------------------------------------------------------
+
+Currying is a functional programming technique in which a function that takes multiple arguments is transformed into a series of functions that each take one argument at a time
+Dynamic functions, partial application
+
+- Code Reusability
+-partial functions
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------HOF--------------------------------------------------------------------------------------
+Map = returns new array modifying each element init- can chain trough other array methods
+forEach = returns no array but opportunity to see through the array and use the value
+filter = returns the array containing only element that passed the mentioned condition
+Reduce = returns accumlated single value from the array
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------Constructor function--------------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=AOPmqw9scfc
+
+
+prototype is actually a linking class to the main entity to inheritence
+
+prototype: Every Data structure and function has a specific behaviour which is determined with proeperties and methods to implement the behaviour in the form of object called prototype which also enables inheritence, allowing objects to share behaviors 
+prototypal inheritence: object can share methods and properties of other object by poinying its properties and methods through prortype
+
+prototype chain : Most of the Data structures are built based on the other data structure for example Array has a Prototype 
+
+- the hole code is about initializing some data performing Different functions on them, the enclosing ment of it is called.
+and some times we will other enclosment/object in other enclosement/object like:
+
+PROTOTYPE: is actually an object that is attached to data we declare that contains properties and method that define the characteristic of that specific data structure. so that the data could inherit specific data the characteristic.
+
+if we want any prewritten function or data that we want to attach or manupilate with our data we need we need to write class or prototype with our data.
+
+everthing datatype in js is attached with a Prototype object enabling pre-written methods and to perform on
+
+
+Denfination: Prototype is an object that contains properties of data and methods describing characteristic and functions of the specific data structure enabling inheritence of the characteristics
+ prototype is basically is a constructer function
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------ASYNC--------------------------------------------------------------------------------------
+https://javascript.info/promise-basics
+
+
+- Javascript engine single treaded and has single stack, executing one execution context top to bottom at a time.
+- so whenever the functions needs to work with timetaking outside environment it is handled Asyncronously without non-blocking the other js execution for other tasks
+-  Asyncronously APIs regester the ASync function as a callBack and waits for work to be done after the the regestered callback is pushed to the callBack queue.
+- when that api task is done the callBack function gets queued inside a callBack queue, where two queue that are prority queue and callBack queue
+- between callBack queue and call stack there is mechanism call Event loop which constantly moniters callstack and queue, checking for the call stack to be empty and pushing the callBacks.
+- API enclosed callbacks enter callback queue, the other enclose callbacks like then/catch will be in priority queue because those time taken is already done
+
+- in case of callback ASYNC APIs encloses the CB function code where as in promises the created promise object has the CB code and the APIs sperately
+- Callbacks → The API encloses the callback function inside its implementation.
+- Promises → The API and the callback function (which is executed when resolved) are separate, and the promise object holds the execution logic.
+
+
+
+Promise: Promise is an object that represents the eventual completion or failure of Async operation and its resulting value.
+         - it helps manage Async code more efficiently avoiding callBack Hell and Inversion of control.
+         - what happens behind is:
+           - when create a new promise a promise object is created having: state, Result, then etc properties
+           - while creating a promise we would have given is an executer function enclosing a API having access to resolve and reject methods
+           - after the APIs works API call either of the methods according 
+           - the Methods with the data/error goes execution stack via callback queue which upon executing invokes the attached then CB function passing the resolved data
+           - after resolve action then releses the function to the microtask queue and then to the callstack job is done and that then function always returns a promise enabling promise chaining.
+
+
+ASYNC/AWAIT:  Async is attached to the function enabling easy to write Asyncronous code inside like writing promise chaining in a syncronous manner using Await
+            - Await is used to wait for the promises to resolve and return a value
+            - in callstack the js engine reads like a normal function, until stumbles upon await , if the promise is not yet resolves the execution stops and the function is looped via microtask queue until resolved and the execution starts from there
+            - await is wait fior the promise call resolve and Promise then functionality is done like nornal flow.

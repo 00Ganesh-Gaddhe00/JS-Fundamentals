@@ -23,7 +23,7 @@
 
 // a= uninitialized -> reference error
 //b = uninitialized ->  reference error
-// c = undfined ->refpresnt a datatype that acts as placeholder
+//c = undefined ->represent a datatype that acts as no value placeholder but not an error
 ////-------------------------------------
 // x = 5; // Assign 5 to x
 

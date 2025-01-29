@@ -1,13 +1,39 @@
 
-// ///for each
+///for each
 
-// const arr = [1,2,3,4,5]
+const arr = [1,2,3,4,5]
 
-// // arr.forEach(function(ele){
-// //     console.log(ele)
-// // })
+// arr.map(function(ele){
+//     console.log(ele)
+// })
 
- 
+//  Array.prototype.MyForEach = function (cb){
+       
+//     for(let i=0; i<cb.length;i++){
+//         cb(this[i])
+//     }
+
+//  }
+
+
+let res = arr.reduce((ele,acc)=>{
+   return (ele+acc)
+})
+
+Array.prototype.MyReduce = function(CB, initialval){
+
+       let start = 0;
+       if(!initialval){
+
+       }
+}
+
+
+
+
+
+
+
 // Array.prototype.MyforEach = function(cb){
      
 //      for(let i=0; i<this.length;i++){
@@ -61,7 +87,7 @@
 
 ///////REDUCE///////////////////////////////////////////////////////////////////
 
-const arr = [1,2,3,4,5]
+// const arr = [1,2,3,4,5]
 
 // let sum = arr.reduce(function(acc, ele){
 //     return acc+ele

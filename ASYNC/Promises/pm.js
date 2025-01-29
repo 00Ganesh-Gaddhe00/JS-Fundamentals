@@ -1,11 +1,11 @@
 
-// const fs = require("fs");
+const fs = require("fs");
 
 ////Basic Promises
 
 // const prom = new Promise(function(resolve, reject){
 //     setTimeout(function(){
-//          reject("Resolved data")
+//          resolve("Resolved data")
 //     },1000)
 // })
 
@@ -58,6 +58,7 @@
 //   console.log(err)
 // })
 
+// console.log(promisefile1.then)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // let  promisefile1 = fs.promises.readFile("../file1.txt", )
@@ -93,16 +94,16 @@ function createOrder(cart){
    const pr = new Promise(function(resolve, reject){
        
       setTimeout(function(){
-         resolve({ order_id: 123, order_items:cart, total_price:300})
-         // reject('the items in the cart are unavailable')
+        //  resolve({ order_id: 123, order_items:cart, total_price:300})
+         reject('the items in the cart are unavailable')
    },1000)
    })
 
    return pr
 }
 
-// console.log(createOrder(cart))
-// console.log("after")
+console.log(createOrder(cart))
+console.log("after")
 
 
 function makepayment(total_amount){
@@ -110,8 +111,8 @@ function makepayment(total_amount){
               setTimeout(function(){
                   resolve('the payment of '+total_amount+' is successful')
                   // reject ('the payment failed ')
-              })
-       },2000)
+              },2000)
+       })
 }
 
 function Ordermail(){
@@ -172,28 +173,60 @@ function Ordermail(){
 //     }))
 // }
 
-Promise.allPoll = function(promises){
-   return new Promise((function(resolve, reject){
+// Promise.allPoll = function(promises){
+//    return new Promise((function(resolve, reject){
 
-      if(!Array.isArray(promises)){
-                     reject('not an array')
-                    }
+//       if(!Array.isArray(promises)){
+//                      reject('not an array')
+//                     }
          
-       const res = []
-       let arrayLength = promises.length
-       promises.forEach((promise, idx)=>{
-           Promise.resolve(promise).then((data)=>{
-               res[idx] = data
-               arrayLength--;
+//        const res = []
+//        let arrayLength = promises.length
+//        promises.forEach((promise, idx)=>{
+//            Promise.resolve(promise).then((data)=>{
+//                res[idx] = data
+//                arrayLength--;
 
-               if(arrayLength===0){
-                   resolve(res)
-               }
+//                if(arrayLength===0){
+//                    resolve(res)
+//                }
 
 
-           }).catch((err)=>reject(err))
-       })
-   }))
-}      
+//            }).catch((err)=>reject(err))
+//        })
+//    }))
+// }      
 
-Promise.allPoll([createOrder(cart), makepayment(30), Ordermail()]).then((data)=> console.log(data)).catch(err=>console.log(err))
+// Promise.allPoll([createOrder(cart), makepayment(30), Ordermail()]).then((data)=> console.log(data)).catch(err=>console.log(err))
+
+// PromiseAllPolly = function(PromiseArr){
+//         return new Promise(function(resolve, reject){
+//             if(!Array.isArray(PromiseArr)){
+//                 reject('Input is Not an Array')
+//             }
+//             let res =[]
+//             let arrayLength = PromiseArr.length
+//             let hasRejected = false;
+            
+//             PromiseArr.forEach((promise,idx)=>{
+
+//                 Promise.resolve(promise).then((data)=>{
+//                     res[idx] = data
+//                     arrayLength--;
+
+//                     if(arrayLength==0 && !hasRejected){
+//                         resolve(res)
+//                     }
+//                 }).catch((err)=> {
+//                     if (!hasRejected) {
+//                         hasRejected = true;  // Ensure only one reject
+//                         reject(err);
+//                     }
+//                 })
+//             })
+
+
+//         })
+// }
+
+// PromiseAllPolly([createOrder(cart), makepayment(30), Ordermail()]).then((data)=> console.log(data)).catch((err)=>console.log(err))

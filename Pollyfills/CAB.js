@@ -1,18 +1,20 @@
-
+//1.this
+// console.log(this)
 // let obj = {
 //     name:"garath",
 //     age:29,
 //     testfunction: function(){
-//        return function g(){
-//             console.log(this)
+//            console.log(this)
+//     //    return function g(){
+//     //         console.log(this)
 
-//         }
-//         g()
+//     //     }
+//     //     g()
 
 //     }
 // }
 
-// let fxn = obj.testfunction()
+// obj.testfunction()
 
 // console.log(fxn())
 
@@ -32,12 +34,16 @@
 //     }
     
 
-
-// console.log(data.getstatus());
+// let ans1 = data.getstatus()
+// console.log(ans1);
 // console.log(this)
-// console.log(data.getstatus.call(this))
+// let ans2 = data.getstatus.call(this)
+// console.log(ans2)
 
-// },0)
+// },1000)
+
+
+// console.log('last')
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -45,21 +51,24 @@
 //output -> #1 Lion:King
   //       #2 Tiger:queen
 
-const animals = [
-    {species:'Lion', name:'king'},
-    {species:'Tiger', name:'Queen'}
-]
+// const animals = [
+//     {species:'Lion', name:'king'},
+//     {species:'Tiger', name:'Queen'}
+// ]
 
-function printAnimals(i){
-    this.print = function(){
-        console.log('#'+i+' '+this.species+': '+this.name);
-    }
-    this.print()
-}
+// function printAnimals(i){
+//     // this.print = function(){
+//     //     console.log('#'+i+' '+this.species+': '+this.name);
+//     // }
+//     // this.print()
+//     console.log('#'+i+' '+this.species+': '+this.name)
+// }
 
-for(let i=0; i<animals.length; i++){
-     printAnimals.call(animals[i],i)
-}
+// for(let i=0; i<animals.length; i++){
+//      printAnimals.call(animals[i],i+1)
+// }
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -142,17 +151,17 @@ for(let i=0; i<animals.length; i++){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /// practice example
-// const teacher = {
-//      name: "garath",
-//      subject:"science"
-// }
+const teacher = {
+     name: "garath",
+     subject:"science"
+}
 
-// function teacherintro(age, experince){
+function teacherintro(age, experince){
 
-//     console.log(`Hello! My name is ${this.name}, i teach ${this.subject}, im ${age}yrs old, i have ${experince}years of experience`)
-// }
+    console.log(`Hello! My name is ${this.name}, i teach ${this.subject}, im ${age}yrs old, i have ${experince}years of experience`)
+}
 
-// // teacherintro.call(teacher,30,4)
+// teacherintro.call(teacher,30,4)
 // //    teacherintro.apply(teacher,[30,4])
 //  let bindfxn = teacherintro.bind(teacher,40,9)
 
@@ -161,6 +170,16 @@ for(let i=0; i<animals.length; i++){
 
 
 ///////////////////////////////////////////////   Pollyfills       //////////////////////////////////////////////////
+
+Function.prototype.MyCall = function(obj, ...args){
+      obj.fxn = this
+      obj.fxn(...args)
+}
+
+
+teacherintro.MyCall(teacher, 30, 4)
+
+
 
 // const teacher = {
 //     name: "garath",
@@ -188,6 +207,12 @@ for(let i=0; i<animals.length; i++){
 // }
  
 // teacherintro.MyApply(teacher,[30,4])
+
+Function.prototype.MyApply = function(obj, args){
+      obj.fxn = this
+      obj.fxn(...args)
+
+}
 
 
 // Function.prototype.Mybind = function(obj, ...args){

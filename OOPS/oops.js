@@ -46,32 +46,32 @@
 // }
 
 
-nestedObject = {
-    a: 1,
-    b: {
-        c: 2,
-        d: {
-            e: 3,
-            f: 4
-        }
-    },
-    g: 5
-};
+// nestedObject = {
+//     a: 1,
+//     b: {
+//         c: 2,
+//         d: {
+//             e: 3,
+//             f: 4
+//         }
+//     },
+//     g: 5
+// };
 
-function solution (obj, prev_key){
-   let output = {}
-   for(let key in obj){
-    let val = obj[key]
-     let newKey = prev_key === undefined?key: prev_key+'.'+key
-     if(val!=null && typeof val === 'object'){
-        let recursive = solution(val, newKey )
-        output = {...output, ...recursive}
-     }
-      else output[newKey] = val
-    }
+// function solution (obj, prev_key){
+//    let output = {}
+//    for(let key in obj){
+//     let val = obj[key]
+//      let newKey = prev_key === undefined?key: prev_key+'.'+key
+//      if(val!=null && typeof val === 'object'){
+//         let recursive = solution(val, newKey )
+//         output = {...output, ...recursive}
+//      }
+//       else output[newKey] = val
+//     }
 
-    return output
+//     return output
 
-}
+// }
 
-console.log(solution(nestedObject))
+// console.log(solution(nestedObject))
