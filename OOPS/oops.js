@@ -1,22 +1,22 @@
 
-// let obj = {
-//     name:"garath",
-//     age:29,
-//     testfunction: function(){
-//               function g(){
-//             console.log(this)
+let obj = {
+    name:"garath",
+    age:29,
+    testfunction: function(){
+              function g(){
+            console.log(this)
 
-//         }
-//         g()
+        }
+        g()
 
-//     }
-// }
+    }
+}
 
-// const fxn =  obj.testfunction()
-// obj.testfunction()
+const fxn =  obj.testfunction()
+obj.testfunction()
 
 
-// console.log(fxn())
+console.log(fxn())
 
 
 

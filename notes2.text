@@ -17,6 +17,12 @@ whenever we load a script or invoke a function a new execution context is pushed
 
 - global environment records - consist of reference to global object - declaritive record(all identifier bindings expect var and function ) - this- global object - outer Env=null(Global Object)
 
+- perpelxity- In JavaScript, the this keyword is a dynamic reference that points to the object that is references the object associated with the current execution context.
+  My define - "this" is the property of the function or execution context that dynamically reference to the object that is currently executing the code
+- chatgpt - In JavaScript, this is a special keyword that refers to the object that is executing the current function. Its value depends on how the function is called, not where it is defined.
+
+
+
 this - global environment record-
      -  incase of function context or global context this reference to Global object because the outer conext is based out of window or module or an empty file in nodejs
         expect in cases like the function is executed in an declared/created object because the funtion is based out of that and object is the defined/entity
@@ -65,7 +71,7 @@ undefined and Null ;
 
 undefined represent the value that is yet to assigned or empty
 null represent the value that should not be assigned or wont apply
-
+1
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------lexical environment----------------------------------------------------------------------------------
@@ -75,6 +81,9 @@ lexical environment - it is component of execution context
                     - it consist of two primary components:
                       1. Environment Record: This is where variable and function declarations from the current execution scope
                       2. Reference to the Outer Lexical Environment: Each lexical environment keeps a reference to its outer (parent) lexical environment, forming a "scope chain."
+
+lexical environment - to simply put it lexical environment is data structure that consist of current context or local environment record and references to outer or parent lexical environment
+                    
 
 scope chaining -  lexical environment consist of a reference to the outer or parent execution scope until the global scope creating a scope chain
 
@@ -121,6 +130,9 @@ Reduce = returns accumlated single value from the array
 https://www.youtube.com/watch?v=AOPmqw9scfc
 
 
+_proto_  instance has it points to the Constructor function or prototype
+Prototype - Constructor function or class basically function that constructs the object 
+
 prototype is actually a linking class to the main entity to inheritence
 
 prototype: Every Data structure and function has a specific behaviour which is determined with proeperties and methods to implement the behaviour in the form of object called prototype which also enables inheritence, allowing objects to share behaviors 
@@ -149,7 +161,7 @@ https://javascript.info/promise-basics
 - Javascript engine single treaded and has single stack, executing one execution context top to bottom at a time.
 - so whenever the functions needs to work with timetaking outside environment it is handled Asyncronously without non-blocking the other js execution for other tasks
 -  Asyncronously APIs regester the ASync function as a callBack and waits for work to be done after the the regestered callback is pushed to the callBack queue.
-- when that api task is done the callBack function gets queued inside a callBack queue, where two queue that are prority queue and callBack queue
+- when that api task is done the callBack function gets queued inside a callBack queue, where two queue that are prority queue and callBack queue.
 - between callBack queue and call stack there is mechanism call Event loop which constantly moniters callstack and queue, checking for the call stack to be empty and pushing the callBacks.
 - API enclosed callbacks enter callback queue, the other enclose callbacks like then/catch will be in priority queue because those time taken is already done
 

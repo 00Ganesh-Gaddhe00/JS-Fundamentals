@@ -74,3 +74,65 @@ const p1 = new Promise(function(resolve, reject){
        
    
    // threepromise()
+
+   ////// promise chaining ////////////////
+
+
+//    const fs = require("fs").promises;
+
+// fs.readFile("../file1.txt", "utf-8") // Step 1: Read file (returns a Promise)
+//   .then(data => {
+//     console.log("Original Content:", data);
+//     return data.toUpperCase(); // Step 2: Convert to uppercase (returns a new value)
+//   })
+//   .then(upperCasedData => {
+//     console.log("Uppercased Content:", upperCasedData);
+//     return fs.writeFile("../file2.txt", upperCasedData); // Step 3: Write to another file
+//   })
+//   .then(() => {
+//     console.log("File successfully written!");
+//   })
+//   .catch(error => {
+//     console.error("Error:", error);
+//   });
+
+
+   // function getUser() {
+   //    return new Promise((resolve, reject) => {
+   //      setTimeout(() => {
+   //        console.log("Fetched User");
+   //        resolve({ id: 1, name: "Ganesh" }); // Resolving with user data
+   //      }, 1000);
+   //    });
+   //  }
+    
+   //  function processUser(user) {
+   //    return new Promise((resolve, reject) => {
+   //      setTimeout(() => {
+   //        console.log(`Processing user: ${user.name}`);
+   //        user.processed = true;
+   //        resolve(user); // Resolving with updated user data
+   //      }, 1000);
+   //    });
+   //  }
+    
+   //  function sendWelcomeEmail(user) {
+   //    return new Promise((resolve, reject) => {
+   //      setTimeout(() => {
+   //        if (user.processed) {
+   //          console.log(`Welcome email sent to ${user.name}`);
+   //          resolve("Email Sent");
+   //        } else {
+   //          reject("User not processed, email not sent");
+   //        }
+   //      }, 1000);
+   //    });
+   //  }
+    
+   //  // Chaining Promises
+   //  getUser()
+   //    .then(user => processUser(user)) // Process user after fetching
+   //    .then(processedUser => sendWelcomeEmail(processedUser)) // Send email after processing
+   //    .then(response => console.log(response)) // Log success message
+   //    .catch(error => console.error("Error:", error)); // Handle errors
+    

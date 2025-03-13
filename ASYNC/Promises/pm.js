@@ -141,6 +141,7 @@ function Ordermail(){
 
 // Promise.allPoll([createOrder(cart), makepayment(300), Ordermail()]).then((data)=> console.log(data))
 
+
 ///// promise.all Pollyfill ///////////////////////////////////////////////////////
 
 
@@ -230,3 +231,5 @@ function Ordermail(){
 // }
 
 // PromiseAllPolly([createOrder(cart), makepayment(30), Ordermail()]).then((data)=> console.log(data)).catch((err)=>console.log(err))
+
+
